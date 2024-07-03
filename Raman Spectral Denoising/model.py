@@ -65,13 +65,13 @@ class ResUNet(nn.Module):
         res_conv3 = [BasicConv(128, 256, batch_norm)]
         res_conv3.append(ResUNetConv(num_convs, 256, batch_norm))
         res_conv3.append(BasicConv(256, 128, batch_norm))
-        self.conv3 = nn.Sequential(*res_conv3)       
+        self.conv3 = nn.Sequential(*res_conv3)
         self.up3 = nn.Upsample(scale_factor = 2)
 
         res_conv4 = [BasicConv(256, 128, batch_norm)]
         res_conv4.append(ResUNetConv(num_convs, 128, batch_norm))
         res_conv4.append(BasicConv(128, 64, batch_norm))
-        self.conv4 = nn.Sequential(*res_conv4)     
+        self.conv4 = nn.Sequential(*res_conv4)
         self.up4 = nn.Upsample(scale_factor = 2)
 
         res_conv5 = [BasicConv(128, 64, batch_norm)]
